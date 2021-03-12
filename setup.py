@@ -8,7 +8,7 @@ setup(
   author = 'Nitipol & Kantitat',                   # Type in your name
   author_email = 'aunitipol@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/nitipol012/GoCar',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/nitipol012/GoCar/archive/v_01.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/nitipol012/GoCar/archive/v_02.tar.gz',    # I explain this later on
   keywords = ['RaspberryPi', 'GoCar'],   # Keywords that define your package best
   install_requires=['numpy'],          # I get to this in a second
  
