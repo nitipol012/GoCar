@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'GoCar',         # How you named your package folder (MyLib)
   packages = ['GoCar'],   # Chose the same as "name"
-  version = '0.1',      # Start with a small number and increase it with every change you make
+  version = '2',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'More information in Chap7',   # Give a short description about your library
   author = 'Nitipol & Kantitat',                   # Type in your name

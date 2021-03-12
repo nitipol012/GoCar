@@ -60,6 +60,8 @@ class Car:
         GPIO.output(self.motor[2], 0)
         GPIO.output(self.motor[3], 0)
         GPIO.output(self.led[2], 1)
+        GPIO.output(self.led[0], 0)
+        GPIO.output(self.led[1], 0)
         print("Stop")
             
     def Forward(self):
@@ -68,13 +70,10 @@ class Car:
         GPIO.output(self.motor[2], 0)
         GPIO.output(self.motor[3], 1)
         GPIO.output(self.led[0], 1)
-        
+        print("Forward")
         if GPIO.input(self.irsensor[0]) or GPIO.input(self.irsensor[1]):
             GPIO.output(self.buzzer, 1)
-            Car().Stop()
-            GPIO.output(self.led[2], 1)
-            time.sleep(0.5)
-            Car().Reverse()       
+            Car().Stop()     
             while GPIO.input(self.irsensor[0]) or GPIO.input(self.irsensor[1]):
                 time.sleep(0.2)         
 
@@ -84,7 +83,14 @@ class Car:
         GPIO.output(self.motor[2], 1)
         GPIO.output(self.motor[3], 0)
         GPIO.output(self.led[1], 1)
+        GPIO.output(self.led[0], 0)
+        GPIO.output(self.led[2], 0)
         print("Reverse")
+        if GPIO.input(self.irsensor[0]) or GPIO.input(self.irsensor[1]):
+            GPIO.output(self.buzzer, 1)
+            Car().Stop()     
+            while GPIO.input(self.irsensor[0]) or GPIO.input(self.irsensor[1]):
+                time.sleep(0.2)   
     
     def TurnLeft(self):
 
@@ -93,6 +99,9 @@ class Car:
         GPIO.output(self.motor[2], 0)
         GPIO.output(self.motor[3], 0)
         GPIO.output(self.led[0], 1)
+        GPIO.output(self.led[1], 0)
+        GPIO.output(self.led[2], 0)
+        print("Turn Left")
         if GPIO.input(self.irsensor[0]) or GPIO.input(self.irsensor[1]):
             GPIO.output(self.buzzer, 1)
             GPIO.output(self.motor[0], 0)
@@ -102,14 +111,7 @@ class Car:
             GPIO.output(self.led[2], 1)            
             while GPIO.input(self.irsensor[0]) or GPIO.input(self.irsensor[1]):
                 time.sleep(0.2)
-        else:
-            GPIO.output(self.buzzer, 0)  
-            GPIO.output(self.motor[0], 1)
-            GPIO.output(self.motor[1], 0)
-            GPIO.output(self.motor[2], 0)
-            GPIO.output(self.motor[3], 0)
-            GPIO.output(self.led[0], 1)
-        print("Turn Left")
+
 
     def TurnRight(self):
         GPIO.output(self.motor[0], 0)
@@ -117,6 +119,8 @@ class Car:
         GPIO.output(self.motor[2], 0)
         GPIO.output(self.motor[3], 1)
         GPIO.output(self.led[0], 1)
+        GPIO.output(self.led[1], 0)
+        GPIO.output(self.led[2], 0)
         print("Turn Right")
         if GPIO.input(self.irsensor[0]) or GPIO.input(self.irsensor[1]):
             GPIO.output(self.buzzer, 1)
@@ -127,13 +131,6 @@ class Car:
             GPIO.output(self.led[2], 1)            
             while GPIO.input(self.irsensor[0]) or GPIO.input(self.irsensor[1]):
                 time.sleep(0.2)
-        else:
-            GPIO.output(self.buzzer, 0)  
-            GPIO.output(self.motor[0], 0)
-            GPIO.output(self.motor[1], 0)
-            GPIO.output(self.motor[2], 1)
-            GPIO.output(self.motor[3], 0)
-            GPIO.output(self.led[0], 1)
 
     def End(self):
         GPIO.cleanup()
